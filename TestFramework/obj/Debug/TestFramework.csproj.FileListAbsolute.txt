@@ -1,0 +1,6 @@
+D:\Work\Programming\Visual Studio 2022\C#\.Net Framework\Console\TestFramework\TestFramework\bin\Debug\TestFramework.dll
+D:\Work\Programming\Visual Studio 2022\C#\.Net Framework\Console\TestFramework\TestFramework\bin\Debug\TestFramework.pdb
+D:\Work\Programming\Visual Studio 2022\C#\.Net Framework\Console\TestFramework\TestFramework\obj\Debug\TestFramework.csproj.AssemblyReference.cache
+D:\Work\Programming\Visual Studio 2022\C#\.Net Framework\Console\TestFramework\TestFramework\obj\Debug\TestFramework.csproj.CoreCompileInputs.cache
+D:\Work\Programming\Visual Studio 2022\C#\.Net Framework\Console\TestFramework\TestFramework\obj\Debug\TestFramework.dll
+D:\Work\Programming\Visual Studio 2022\C#\.Net Framework\Console\TestFramework\TestFramework\obj\Debug\TestFramework.pdb
