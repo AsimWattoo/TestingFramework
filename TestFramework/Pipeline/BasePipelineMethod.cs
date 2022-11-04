@@ -28,7 +28,7 @@ namespace TestFramework.Pipeline
 
         #region Abstract Methods
 
-        public abstract List<string> Execute(bool shouldContinueOnFaliure);
+        public abstract void Execute(ErrorContainer container, bool shouldContinueOnFaliure);
 
         #endregion
     }

@@ -13,11 +13,16 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            Project p = new Project();
+            Project project = new Project();
 
-            TestResult res = p.ToTestObject(true).Required((Project project) => project.Name, "Name for a project is required").Execute();
+            TestObject<Project> proj = project.ToTestObject(true)
+                .Required(p => p.Description, "Description for a project is required")
+                .Length(p => p.Description, 3, 5, "Description should be in range 3 - 5 characters")
+                .NumberRange(p => p.Id, 0, 100, "Id must be geater than 0 and less than 100");
 
-            Console.WriteLine(res.Errors.First());
+            TestResult res = proj.Execute();
+
+            Console.WriteLine(res);
 
             Console.ReadKey();
         }
@@ -28,13 +33,13 @@ namespace Testing
     {
         public string Name { get; set; } = null;
 
-        public int Id { get; set; }
+        public int Id { get; set; } = 1;
 
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }
 
-        public string Description { get; set; }
+        public string Description { get; set; } = "Hell";
 
         public List<string> TeamMembers { get; set; }
     }

@@ -42,7 +42,10 @@ namespace TestFramework.Pipeline
         public void Add(IPipelineMethod method)
         {
             _methods.Add(method);
-            _lastMethod.Next = method;
+            if(_lastMethod != null)
+            {
+                _lastMethod.Next = method;
+            }
             _lastMethod = method;
         }
 
@@ -56,10 +59,11 @@ namespace TestFramework.Pipeline
         public static void Execute<T>(TestObject<T> tObject, bool shouldContinueOnFaliure = false)
             where T: new()
         {
-            List<string> errors = tObject.Pipeline.Pipeline.First().Execute(shouldContinueOnFaliure);
-            if (errors.Count > 0)
+            ErrorContainer container = new ErrorContainer();
+            tObject.Pipeline.Pipeline.First().Execute(container, shouldContinueOnFaliure);
+            if (container.Errors.Count > 0)
             {
-                tObject.Result.AddErrors(errors);
+                tObject.Result.AddErrors(container.Errors);
                 tObject.Result.TestStatus = Status.Falied;
             }
             else

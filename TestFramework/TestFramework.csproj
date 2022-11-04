@@ -44,10 +44,15 @@
     <Compile Include="Enums\Status.cs" />
     <Compile Include="Extensions\ConversionExtensions.cs" />
     <Compile Include="Extensions\PipelineExtensions.cs" />
+    <Compile Include="Interfaces\IPipelineMethod.cs" />
     <Compile Include="Models\TestObject.cs" />
     <Compile Include="Models\TestResult.cs" />
+    <Compile Include="PipelineMethods\Length.cs" />
+    <Compile Include="PipelineMethods\NumberRange.cs" />
+    <Compile Include="PipelineMethods\Required.cs" />
+    <Compile Include="Pipeline\BasePipelineMethod.cs" />
+    <Compile Include="Pipeline\ErrorContainer.cs" />
     <Compile Include="Pipeline\Pipeline.cs" />
-    <Compile Include="Pipeline\PipelineMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

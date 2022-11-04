@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using TestFramework.Pipeline;
+
 namespace TestFramework.Interfaces
 {
     public interface IPipelineMethod
@@ -18,6 +20,6 @@ namespace TestFramework.Interfaces
         /// The method to execute
         /// </summary>
         /// <returns></returns>
-        List<string> Execute(bool shouldContinueOnFaliure);
+        void Execute(ErrorContainer container,bool shouldContinueOnFaliure);
     }
 }

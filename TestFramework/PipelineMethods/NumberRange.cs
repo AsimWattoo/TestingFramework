@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using TestFramework.Interfaces;
 using TestFramework.Pipeline;
 
 namespace TestFramework.PipelineMethods
 {
-    /// <summary>
-    /// Ensures that an element is present
-    /// </summary>
-    public class Required : BasePipelineMethod
+    public class NumberRange : BasePipelineMethod
     {
 
         #region Private Members
 
-        private object _value;
+        private IComparable value;
+
+        private IComparable min;
+
+        private IComparable max;
 
         #endregion
 
@@ -26,9 +26,11 @@ namespace TestFramework.PipelineMethods
         /// <summary>
         /// Default Constructor
         /// </summary>
-        public Required(object value, string error = "Value is requried") : base(error)
+        public NumberRange(IComparable _value, IComparable _min, IComparable _max, string error = "Value must be in the specified range") : base(error)
         {
-            _value = value;
+            value = _value;
+            min = _min;
+            max = _max;
         }
 
         #endregion
@@ -36,18 +38,18 @@ namespace TestFramework.PipelineMethods
         #region Public Methods
 
         /// <summary>
-        /// Executes the pipeline
+        /// Excutes the method for checking
         /// </summary>
+        /// <param name="container"></param>
         /// <param name="shouldContinueOnFaliure"></param>
-        /// <returns></returns>
         public override void Execute(ErrorContainer container, bool shouldContinueOnFaliure)
         {
-            //Checking the required attribute
+            bool correct = value.CompareTo(min) >= 0 && value.CompareTo(max) <= 0;
 
-            if(_value == null)
+            if (!correct)
             {
                 container.Errors.Add(ErrorMessage);
-                if(!shouldContinueOnFaliure)
+                if (!shouldContinueOnFaliure)
                     return;
             }
 
