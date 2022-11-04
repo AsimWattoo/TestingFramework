@@ -38,6 +38,12 @@ namespace TestFramework.Models
         /// <param name="error"></param>
         public void AddError(string error) => _errors.Add(error);
 
+        /// <summary>
+        /// Adds a list of errors
+        /// </summary>
+        /// <param name="errors"></param>
+        public void AddErrors (List<string> errors) => _errors.AddRange(errors);
+
         #endregion
     }
 }

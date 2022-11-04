@@ -2,6 +2,7 @@
 
 using TestFramework.Models;
 using TestFramework.Pipeline;
+using TestFramework.PipelineMethods;
 
 namespace TestFramework.Extensions
 {
@@ -21,7 +22,7 @@ namespace TestFramework.Extensions
         public static TestObject<T> Required<T>(this TestObject<T> obj, Func<T, object> prop, string errorMessage = null)
             where T: new()
         {
-            PipelineMethod method = new PipelineMethod(() => !(prop(obj.Object) == null), errorMessage);
+            Required method = new Required(prop(obj.Object), errorMessage);
             obj.Pipeline.Add(method);
             return obj;
         }
